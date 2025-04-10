@@ -1,16 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './index.css';  // Or your main CSS file
+
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import About from "./components/About";
+import Upload from "./components/Upload";
+import Footer from "./components/Footer";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-    <div className='bg-red-500'> hi there</div>
-    </>
-  )
+    return (
+        <Router>
+            <div className="min-h-screen flex flex-col">
+                <Navbar />
+                <div className="flex-grow">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/upload" element={<Upload />} />
+                    </Routes>
+                </div>
+                <Footer />
+            </div>
+        </Router>
+    );
 }
 
-export default App
+export default App;
