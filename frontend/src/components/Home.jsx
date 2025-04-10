@@ -1,8 +1,17 @@
 'use client';
 
+import { useState, useEffect } from "react";
 import { Upload, BarChartIcon as ChartBar, FileSearch, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// Define images for the carousel
+const images = [
+  "src/assets/undraw_updated_resume_re_7r9j.svg",
+  "src/assets/undraw_job_offers_re_634p.svg",
+  "src/assets/undraw_statistic_chart_re_w0pk.svg",
+];
+
+// Feature data
 const features = [
   { icon: <Upload className="w-6 h-6" />, text: "Easy Resume Upload" },
   { icon: <FileSearch className="w-6 h-6" />, text: "AI-Powered Analysis" },
@@ -10,6 +19,16 @@ const features = [
 ];
 
 export default function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Set up an effect to change images every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-base-100 flex items-center justify-center p-4">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -45,9 +64,13 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side - Placeholder for image */}
-        <div className="flex-1 relative w-full h-[400px] bg-gray-200 rounded-lg shadow-inner flex items-center justify-center">
-          <p className="text-gray-500">Image carousel coming soon...</p>
+        {/* Right Side - Image Carousel */}
+        <div className="flex-1 relative w-full h-[400px] rounded-lg overflow-hidden">
+          <img
+            src={images[currentImageIndex]}
+            alt="Project showcase"
+            className="w-full h-full object-contain"
+          />
         </div>
       </div>
     </div>
