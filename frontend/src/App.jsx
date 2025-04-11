@@ -10,6 +10,7 @@ import Upload from "./components/Upload";
 import Footer from "./components/Footer";
 import Signup from './components/Signup';
 import Login from './components/Login';
+import Subscribe from './pages/Subscribe';
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                                 <Upload />
                             </PrivateRoute>
                         } />
+                        <Route path="/subscribe" element={<Subscribe />} />
                         <Route path="/signup" element={<Signup />} />
                         <Route path="/login" element={<Login />} />
                     </Routes>

@@ -12,8 +12,12 @@ import {
   Code,
   Award,
 } from "lucide-react"
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 
 const Upload = () => {
+  const { decrementCredits, credits } = useAuth();
   const [files, setFiles] = useState(null)
   const [jobDescription, setJobDescription] = useState("")
   const [filePaths, setFilePaths] = useState([])
@@ -22,6 +26,7 @@ const Upload = () => {
   const [isUploading, setIsUploading] = useState(false)
   const [isRunningScript, setIsRunningScript] = useState(false)
   const [resumeData, setResumeData] = useState([])
+  const navigate = useNavigate()
 
   const handleFileChange = (e) => setFiles(e.target.files)
   const handleJobDescriptionChange = (e) => setJobDescription(e.target.value)
@@ -45,8 +50,16 @@ const Upload = () => {
   }
 
   const handleRunScript = async () => {
+    console.log(credits)
+    if (credits <= 0) {
+      alert("Out of credits!");
+      navigate("/subscribe");
+      return;
+    }
+  
     if (filePaths.length === 0) {
       setMessage("Please upload files first.")
+      
       return
     }
 
@@ -58,6 +71,7 @@ const Upload = () => {
 
       const response = await fetch("http://localhost:5000/api/resume-data")
       const data = await response.json()
+      decrementCredits();
       setResumeData(data)
     } catch (error) {
       setMessage("Failed to run Python script: " + error?.message)

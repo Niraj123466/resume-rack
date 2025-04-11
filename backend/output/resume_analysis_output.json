@@ -1,52 +1,7 @@
 [
     {
-        "name": "Jimil_Soni_Resume.pdf",
-        "compatibility_score": 0.11988389492034912,
-        "coding_profiles": {
-            "github": "https://github.com/jimil222",
-            "leetcode": null,
-            "codechef": null
-        },
-        "github_stats": {
-            "url": "https://github.com/jimil222",
-            "total_contributions": 4,
-            "active_days": 3,
-            "public_repos": 4
-        },
-        "leetcode_stats": {},
-        "codechef_stats": {},
-        "coding_score": 0.006
-    },
-    {
-        "name": "NirajMore_Resume.pdf",
-        "compatibility_score": 0.11981762945652008,
-        "coding_profiles": {
-            "github": "https://github.com/Niraj123466",
-            "leetcode": "https://leetcode.com/u/Niraj123466/",
-            "codechef": "https://www.codechef.com/users/moreniraj49"
-        },
-        "github_stats": {
-            "url": "https://github.com/Niraj123466",
-            "total_contributions": 5,
-            "active_days": 3,
-            "public_repos": 48
-        },
-        "leetcode_stats": {
-            "url": "https://leetcode.com/u/Niraj123466/",
-            "total_problems_solved": 156,
-            "ranking": 763659,
-            "contest_rating": null
-        },
-        "codechef_stats": {
-            "url": "https://www.codechef.com/users/moreniraj49",
-            "rating": 1065,
-            "fully_solved": 95
-        },
-        "coding_score": 0.191
-    },
-    {
         "name": "Prayag Adage Resume.pdf",
-        "compatibility_score": 0.03634556382894516,
+        "compatibility_score": 0.04896765574812889,
         "coding_profiles": {
             "github": null,
             "leetcode": null,
