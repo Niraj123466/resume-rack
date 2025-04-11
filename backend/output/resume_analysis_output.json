@@ -1,0 +1,96 @@
+[
+    {
+        "name": "RUSHI_RESUME.pdf",
+        "compatibility_score": 0.1880142092704773,
+        "coding_profiles": {
+            "github": null,
+            "leetcode": null,
+            "codechef": null
+        },
+        "github_stats": {},
+        "leetcode_stats": {},
+        "codechef_stats": {},
+        "coding_score": 0
+    },
+    {
+        "name": "Jimil_Soni_Resume.pdf",
+        "compatibility_score": 0.07613028585910797,
+        "coding_profiles": {
+            "github": "https://github.com/jimil222",
+            "leetcode": null,
+            "codechef": null
+        },
+        "github_stats": {
+            "url": "https://github.com/jimil222",
+            "total_contributions": 4,
+            "active_days": 3,
+            "public_repos": 4
+        },
+        "leetcode_stats": {},
+        "codechef_stats": {},
+        "coding_score": 0.006
+    },
+    {
+        "name": "NirajMore_Resume.pdf",
+        "compatibility_score": 0.07270513474941254,
+        "coding_profiles": {
+            "github": "https://github.com/Niraj123466",
+            "leetcode": "https://leetcode.com/u/Niraj123466/",
+            "codechef": "https://www.codechef.com/users/moreniraj49"
+        },
+        "github_stats": {
+            "url": "https://github.com/Niraj123466",
+            "total_contributions": 5,
+            "active_days": 3,
+            "public_repos": 48
+        },
+        "leetcode_stats": {
+            "url": "https://leetcode.com/u/Niraj123466/",
+            "total_problems_solved": 156,
+            "ranking": 763659,
+            "contest_rating": null
+        },
+        "codechef_stats": {
+            "url": "https://www.codechef.com/users/moreniraj49",
+            "rating": 1065,
+            "fully_solved": 95
+        },
+        "coding_score": 0.191
+    },
+    {
+        "name": "resumenupur.pdf",
+        "compatibility_score": 0.0694962739944458,
+        "coding_profiles": {
+            "github": "https://github.com/nupurmestry15",
+            "leetcode": "https://leetcode.com/u/FAFNhsCCzG/",
+            "codechef": null
+        },
+        "github_stats": {
+            "url": "https://github.com/nupurmestry15",
+            "total_contributions": 0,
+            "active_days": 0,
+            "public_repos": 4
+        },
+        "leetcode_stats": {
+            "url": "https://leetcode.com/u/FAFNhsCCzG/",
+            "total_problems_solved": 0,
+            "ranking": 5000001,
+            "contest_rating": null
+        },
+        "codechef_stats": {},
+        "coding_score": 0.004
+    },
+    {
+        "name": "Prayag Adage Resume.pdf",
+        "compatibility_score": 0.018468264490365982,
+        "coding_profiles": {
+            "github": null,
+            "leetcode": null,
+            "codechef": null
+        },
+        "github_stats": {},
+        "leetcode_stats": {},
+        "codechef_stats": {},
+        "coding_score": 0
+    }
+]

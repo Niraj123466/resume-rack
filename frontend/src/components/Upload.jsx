@@ -10,6 +10,7 @@ const Upload = () => {
   const [scriptOutput, setScriptOutput] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [isRunningScript, setIsRunningScript] = useState(false);
+  const [resumeData, setResumeData] = useState([]);
 
   const handleFileChange = (e) => setFiles(e.target.files);
   const handleJobDescriptionChange = (e) => setJobDescription(e.target.value);
@@ -43,6 +44,11 @@ const Upload = () => {
       const res = await triggerPythonScript(filePaths);
       setMessage(res.message);
       setScriptOutput(res.output);
+
+      // Fetch processed resume data
+      const response = await fetch("http://localhost:5000/api/resume-data");
+      const data = await response.json();
+      setResumeData(data);
     } catch (error) {
       setMessage("Failed to run Python script: " + error?.message);
     } finally {
@@ -51,7 +57,7 @@ const Upload = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-100 p-4">
+    <div className="min-h-screen flex flex-col items-center bg-base-100 p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-8">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Resume Analyzer
@@ -136,6 +142,97 @@ const Upload = () => {
           </div>
         )}
       </div>
+
+      {/* Resume Cards */}
+      {resumeData.length > 0 && (
+        <div className="w-full max-w-6xl mt-10">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Analyzed Resumes</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {resumeData.map((resume, index) => (
+              <div key={index} className="bg-white border rounded-xl shadow p-5 space-y-2">
+                <h4 className="text-lg font-bold text-purple-700">{resume.name}</h4>
+
+                <p>
+                  <span className="font-semibold text-gray-600">Compatibility Score:</span>{" "}
+                  {(resume.compatibility_score * 100).toFixed(2)}%
+                </p>
+                <p>
+                  <span className="font-semibold text-gray-600">Coding Score:</span>{" "}
+                  {(resume.coding_score * 100).toFixed(2)}%
+                </p>
+
+                {/* Coding Profiles */}
+                <div className="space-y-1 text-sm">
+                  {resume.coding_profiles.github && (
+                    <p>
+                      <a
+                        href={resume.coding_profiles.github}
+                        className="text-blue-600 hover:underline"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        GitHub Profile
+                      </a>
+                    </p>
+                  )}
+                  {resume.coding_profiles.leetcode && (
+                    <p>
+                      <a
+                        href={resume.coding_profiles.leetcode}
+                        className="text-blue-600 hover:underline"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        LeetCode Profile
+                      </a>
+                    </p>
+                  )}
+                  {resume.coding_profiles.codechef && (
+                    <p>
+                      <a
+                        href={resume.coding_profiles.codechef}
+                        className="text-blue-600 hover:underline"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        CodeChef Profile
+                      </a>
+                    </p>
+                  )}
+                </div>
+
+                {/* GitHub Stats */}
+                {resume.github_stats &&
+                  resume.github_stats.total_contributions !== undefined && (
+                    <div className="text-sm text-gray-700 mt-2">
+                      <p>GitHub Contributions: {resume.github_stats.total_contributions}</p>
+                      <p>Active Days: {resume.github_stats.active_days}</p>
+                      <p>Public Repos: {resume.github_stats.public_repos}</p>
+                    </div>
+                  )}
+
+                {/* LeetCode Stats */}
+                {resume.leetcode_stats &&
+                  resume.leetcode_stats.total_problems_solved !== undefined && (
+                    <div className="text-sm text-gray-700 mt-2">
+                      <p>LeetCode Problems Solved: {resume.leetcode_stats.total_problems_solved}</p>
+                      <p>Ranking: {resume.leetcode_stats.ranking}</p>
+                    </div>
+                  )}
+
+                {/* CodeChef Stats */}
+                {resume.codechef_stats &&
+                  resume.codechef_stats.rating !== undefined && (
+                    <div className="text-sm text-gray-700 mt-2">
+                      <p>CodeChef Rating: {resume.codechef_stats.rating}</p>
+                      <p>Fully Solved: {resume.codechef_stats.fully_solved}</p>
+                    </div>
+                  )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
