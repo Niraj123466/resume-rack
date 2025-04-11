@@ -60,6 +60,85 @@ export default function About() {
             evaluation.
           </p>
         </motion.section>
+
+        {/* Features Section */}
+        <motion.section className="mb-16" variants={fadeInUp}>
+          <h2 className="text-3xl font-semibold text-white-600 mb-6 flex items-center">
+            <Server className="mr-2 text-blue-500" />
+            Key Features
+          </h2>
+          <motion.ul className="space-y-6" variants={stagger}>
+            {[
+              {
+                icon: <Code className="text-green-500" />,
+                title: 'Fine-Tuned BERT Model',
+                description: 'Accurately matches resumes with job descriptions using advanced NLP techniques.',
+              },
+              {
+                icon: <Linkedin className="text-blue-600" />,
+                title: 'Online Profile Analysis',
+                description:
+                  'Integrates insights from LinkedIn and GitHub profiles for better candidate assessment.',
+              },
+              {
+                icon: <Github className="text-gray-800" />,
+                title: 'Custom Scoring',
+                description: 'Generates scores based on skills, experiences, and key job description keywords.',
+              },
+              {
+                icon: <Zap className="text-yellow-500" />,
+                title: 'Dynamic Compatibility Check',
+                description: 'Provides a compatibility rating for resumes and job descriptions.',
+              },
+              {
+                icon: <Server className="text-purple-500" />,
+                title: 'Error Handling',
+                description: 'Ensures robust performance with incomplete or missing data.',
+              },
+            ].map((item, index) => (
+              <motion.li
+                key={index}
+                className="flex items-start bg-white rounded-lg p-4 shadow-md transition-all duration-300 hover:shadow-lg"
+                variants={fadeInUp}
+              >
+                <span className="mr-4 mt-1 p-2 bg-gray-100 rounded-full">{item.icon}</span>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-1">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </div>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.section>
+
+        {/* System Requirements Section */}
+        <motion.section variants={fadeInUp}>
+          <h2 className="text-3xl font-semibold text-white-600 mb-6 flex items-center">
+            <Server className="mr-2 text-red-500" />
+            System Requirements
+          </h2>
+          <motion.ul className="grid grid-cols-1 md:grid-cols-2 gap-4" variants={stagger}>
+            {[
+              'Python 3.7+',
+              'PyTorch',
+              'Transformers (Hugging Face)',
+              'BeautifulSoup4',
+              'Requests',
+              'Pandas',
+              'NumPy',
+              'Scikit-learn',
+            ].map((item, index) => (
+              <motion.li
+                key={index}
+                className="flex items-center bg-white rounded-lg p-3 shadow-sm transition-all duration-300 hover:shadow-md"
+                variants={fadeInUp}
+              >
+                <Code className="mr-2 text-indigo-500" />
+                <span className="text-gray-700">{item}</span>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.section>
       </motion.div>
     </div>
   );
