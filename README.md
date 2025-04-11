@@ -1,4 +1,4 @@
-ResumeRack-AI-Powered Resume Screening
+![image](https://github.com/user-attachments/assets/946f58c9-1aa7-484b-b9ca-ee51c46e3b50)ResumeRack-AI-Powered Resume Screening
 
 			
 Revolutionizing the hiring process with advanced NLP and comprehensive candidate evaluation.
@@ -57,7 +57,7 @@ Installation
 
 🔗 Clone the repository:
 
-    git clone https://github.com/your-username/ai-resume-screening.git
+    git clone https://github.com/prayagpro/Hacksprintv6.0_-AI02-AI-powered-resume-_-NeuralNinjas-
 
 📂 Navigate to the project directory:
 
