@@ -1,5 +1,5 @@
 import './index.css';  // Or your main CSS file
-
+import PrivateRoute from "./components/PrivateRoute";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -8,6 +8,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Upload from "./components/Upload";
 import Footer from "./components/Footer";
+import Signup from './components/Signup';
+import Login from './components/Login';
 
 function App() {
     return (
@@ -18,7 +20,13 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
-                        <Route path="/upload" element={<Upload />} />
+                        <Route path="/upload" element={
+                            <PrivateRoute>
+                                <Upload />
+                            </PrivateRoute>
+                        } />
+                        <Route path="/signup" element={<Signup />} />
+                        <Route path="/login" element={<Login />} />
                     </Routes>
                 </div>
                 <Footer />

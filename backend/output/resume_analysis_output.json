@@ -1,20 +1,7 @@
 [
     {
-        "name": "RUSHI_RESUME.pdf",
-        "compatibility_score": 0.1880142092704773,
-        "coding_profiles": {
-            "github": null,
-            "leetcode": null,
-            "codechef": null
-        },
-        "github_stats": {},
-        "leetcode_stats": {},
-        "codechef_stats": {},
-        "coding_score": 0
-    },
-    {
         "name": "Jimil_Soni_Resume.pdf",
-        "compatibility_score": 0.07613028585910797,
+        "compatibility_score": 0.11988389492034912,
         "coding_profiles": {
             "github": "https://github.com/jimil222",
             "leetcode": null,
@@ -32,7 +19,7 @@
     },
     {
         "name": "NirajMore_Resume.pdf",
-        "compatibility_score": 0.07270513474941254,
+        "compatibility_score": 0.11981762945652008,
         "coding_profiles": {
             "github": "https://github.com/Niraj123466",
             "leetcode": "https://leetcode.com/u/Niraj123466/",
@@ -58,31 +45,8 @@
         "coding_score": 0.191
     },
     {
-        "name": "resumenupur.pdf",
-        "compatibility_score": 0.0694962739944458,
-        "coding_profiles": {
-            "github": "https://github.com/nupurmestry15",
-            "leetcode": "https://leetcode.com/u/FAFNhsCCzG/",
-            "codechef": null
-        },
-        "github_stats": {
-            "url": "https://github.com/nupurmestry15",
-            "total_contributions": 0,
-            "active_days": 0,
-            "public_repos": 4
-        },
-        "leetcode_stats": {
-            "url": "https://leetcode.com/u/FAFNhsCCzG/",
-            "total_problems_solved": 0,
-            "ranking": 5000001,
-            "contest_rating": null
-        },
-        "codechef_stats": {},
-        "coding_score": 0.004
-    },
-    {
         "name": "Prayag Adage Resume.pdf",
-        "compatibility_score": 0.018468264490365982,
+        "compatibility_score": 0.03634556382894516,
         "coding_profiles": {
             "github": null,
             "leetcode": null,
