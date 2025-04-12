@@ -11,9 +11,12 @@ import Footer from "./components/Footer";
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Subscribe from './pages/Subscribe';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
     return (
+        <>
+        
         <Router>
             <div className="min-h-screen flex flex-col">
                 <Navbar />
@@ -34,6 +37,8 @@ function App() {
                 <Footer />
             </div>
         </Router>
+        <Toaster position="top-right" reverseOrder={false} />
+        </>
     );
 }
 

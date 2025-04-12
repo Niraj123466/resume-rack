@@ -6,17 +6,12 @@ function AuthStatus() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-        console.log('User logged in:', currentUser);
-      } else {
-        setUser(null);
-        console.log('User logged out');
-      }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      console.log(currentUser ? 'User logged in:' : 'User logged out', currentUser);
     });
 
-    return () => unsub(); // Cleanup
+    return () => unsubscribe(); // Cleanup on unmount
   }, []);
 
   const handleLogout = async () => {

@@ -2,6 +2,7 @@ import React from "react";
 import { useAuth } from "../context/AuthContext";
 import { db } from "../firebase";
 import { doc, updateDoc } from "firebase/firestore";
+import toast from 'react-hot-toast';
 
 const Subscribe = () => {
   const { user, setCredits } = useAuth();
@@ -36,7 +37,7 @@ const Subscribe = () => {
           const docRef = doc(db, "users", user.uid);
           await updateDoc(docRef, { credits: 100 });
           setCredits(100);
-          alert("Payment successful! You now have 100 credits.");
+          toast.success("Payment successful! You now have 100 credits.");
         },
         prefill: {
           email: user.email,

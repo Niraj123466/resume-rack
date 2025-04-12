@@ -7,20 +7,31 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [credits, setCredits] = useState(5); // default credits
+  const [credits, setCredits] = useState(null); // 👈 default to null
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
         setUser(firebaseUser);
-        const docRef = doc(db, "users", firebaseUser.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          setCredits(docSnap.data().credits || 5);
+
+        try {
+          const docRef = doc(db, "users", firebaseUser.uid);
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            setCredits(userData.credits ?? 5); // fallback to 5 only if missing in DB
+          } else {
+            // If user doc doesn't exist, create it with default credits
+            await updateDoc(docRef, { credits: 5 });
+            setCredits(5);
+          }
+        } catch (error) {
+          console.error("Error loading user credits:", error);
+          setCredits(0); // safe fallback
         }
       } else {
         setUser(null);
-        setCredits(5);
+        setCredits(null);
       }
     });
 
@@ -28,7 +39,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const decrementCredits = async () => {
-    if (!user) return;
+    if (!user || credits === null) return;
     const docRef = doc(db, "users", user.uid);
     const newCredits = Math.max(credits - 1, 0);
     await updateDoc(docRef, { credits: newCredits });

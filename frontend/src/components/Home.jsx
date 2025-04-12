@@ -2,7 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Upload, BarChartIcon as ChartBar, FileSearch } from "lucide-react";
+import {
+  ArrowRight,
+  Upload,
+  BarChartIcon as ChartBar,
+  FileSearch,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const images = [
@@ -30,8 +35,7 @@ export default function Hero() {
   return (
     <div className="min-h-screen bg-base-100 flex items-center justify-center p-4">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
-        
-        {/* Text + Features */}
+        {/* Text & Features */}
         <motion.div
           className="flex-1 space-y-6"
           initial={{ opacity: 0, x: -50 }}
@@ -42,9 +46,8 @@ export default function Hero() {
             Welcome to <span className="text-blue-600">ResumeRack!</span>
           </h1>
           <p className="text-xl text-white-600">
-            Streamline your hiring process with our AI-powered resume screening
-            platform. Upload resumes, analyze job descriptions, and find the
-            best match effortlessly.
+            Streamline your hiring process with our AI-powered resume screening platform.
+            Upload resumes, analyze job descriptions, and find the best match effortlessly.
           </p>
 
           {/* Feature Highlights */}
@@ -79,7 +82,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Animated Image Carousel */}
+        {/* Image Carousel */}
         <motion.div
           className="flex-1 relative w-full h-[400px]"
           initial={{ opacity: 0, x: 50 }}

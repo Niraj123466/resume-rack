@@ -4,7 +4,7 @@ import { useState } from "react"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { doc, setDoc } from "firebase/firestore"
 import { auth, db } from "../firebase"
-import { Link } from "react-router-dom" // Assuming you're using React Router
+import { Link, useNavigate } from "react-router-dom" // Assuming you're using React Router
 
 const Signup = () => {
   const [email, setEmail] = useState("")
@@ -12,6 +12,7 @@ const Signup = () => {
   const [name, setName] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
+  const navigate = useNavigate()
 
   const handleSignup = async (e) => {
     e.preventDefault()
@@ -29,7 +30,7 @@ const Signup = () => {
         email: user.email,
         createdAt: new Date(),
       })
-
+      navigate("/upload")
       // You might want to redirect here instead of showing an alert
     } catch (err) {
       console.error(err)

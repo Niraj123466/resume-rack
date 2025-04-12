@@ -1,34 +1,42 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { signInWithEmailAndPassword } from "firebase/auth"
-import { auth } from "../firebase"
-import { Link, useNavigate } from "react-router-dom" // Assuming you're using React Router
+import { useEffect, useState } from "react";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState("")
-  const router = useNavigate()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const router = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        router("/upload");
+      }
+    });
+
+    return () => unsubscribe(); // Clean up listener
+  }, [router]);
 
   const handleLogin = async (e) => {
-    e.preventDefault()
-    setError("")
-    setIsLoading(true)
+    e.preventDefault();
+    setError("");
+    setIsLoading(true);
 
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password)
-      const user = userCredential.user
-      console.log(user)
-      router("/upload")
-      // You might want to redirect here instead of showing an alert
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log("Logged in:", userCredential.user);
+      router("/upload");
     } catch (error) {
-      setError(error.message)
+      setError(error.message);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800 p-4 sm:p-6">
@@ -39,7 +47,9 @@ function Login() {
               Welcome Back
             </span>
           </h1>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Sign in to your account to continue</p>
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            Sign in to your account to continue
+          </p>
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
@@ -65,9 +75,9 @@ function Login() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 
-                           text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700
-                           shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent
-                           outline-none transition duration-200"
+                    text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700
+                    shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent
+                    outline-none transition duration-200"
                 />
               </div>
 
@@ -91,9 +101,9 @@ function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 
-                           text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700
-                           shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent
-                           outline-none transition duration-200"
+                    text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700
+                    shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent
+                    outline-none transition duration-200"
                 />
               </div>
 
@@ -101,10 +111,10 @@ function Login() {
                 type="submit"
                 disabled={isLoading}
                 className={`w-full flex items-center justify-center px-4 py-3 border border-transparent 
-                           text-base font-medium rounded-lg shadow-sm text-white 
-                           bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 
-                           focus:ring-offset-2 focus:ring-purple-500 transition-all duration-200
-                           ${isLoading ? "opacity-70 cursor-not-allowed" : "transform hover:-translate-y-1"}`}
+                  text-base font-medium rounded-lg shadow-sm text-white 
+                  bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 
+                  focus:ring-offset-2 focus:ring-purple-500 transition-all duration-200
+                  ${isLoading ? "opacity-70 cursor-not-allowed" : "transform hover:-translate-y-1"}`}
               >
                 {isLoading ? "Signing in..." : "Sign in"}
               </button>
@@ -125,7 +135,7 @@ function Login() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

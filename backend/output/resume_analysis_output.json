@@ -1,15 +1,25 @@
 [
     {
-        "name": "Prayag Adage Resume.pdf",
-        "compatibility_score": 0.04896765574812889,
+        "name": "resumenupur.pdf",
+        "compatibility_score": 0.2569928765296936,
         "coding_profiles": {
-            "github": null,
-            "leetcode": null,
+            "github": "https://github.com/nupurmestry15",
+            "leetcode": "https://leetcode.com/u/FAFNhsCCzG/",
             "codechef": null
         },
-        "github_stats": {},
-        "leetcode_stats": {},
+        "github_stats": {
+            "url": "https://github.com/nupurmestry15",
+            "total_contributions": 0,
+            "active_days": 0,
+            "public_repos": 4
+        },
+        "leetcode_stats": {
+            "url": "https://leetcode.com/u/FAFNhsCCzG/",
+            "total_problems_solved": 0,
+            "ranking": 5000001,
+            "contest_rating": null
+        },
         "codechef_stats": {},
-        "coding_score": 0
+        "coding_score": 0.004
     }
 ]
