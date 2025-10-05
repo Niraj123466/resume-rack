@@ -6,10 +6,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
-import Upload from "./components/Upload";
+import Upload from "./pages/Upload";
 import Footer from "./components/Footer";
-import Signup from './components/Signup';
-import Login from './components/Login';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 import Subscribe from './pages/Subscribe';
 import { Toaster } from 'react-hot-toast';
 

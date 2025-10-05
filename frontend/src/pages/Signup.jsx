@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { doc, setDoc } from "firebase/firestore"
-import { auth, db } from "../firebase"
+import { auth, db } from "../services/firebase"
 import { Link, useNavigate } from "react-router-dom" // Assuming you're using React Router
 
 const Signup = () => {

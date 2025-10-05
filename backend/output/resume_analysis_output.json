@@ -1,7 +1,7 @@
 [
     {
         "name": "NirajMore (2).pdf",
-        "compatibility_score": 0.2934091091156006,
+        "compatibility_score": 0.30889028310775757,
         "coding_profiles": {
             "github": "https://github.com/Niraj123466",
             "leetcode": "https://leetcode.com/u/Niraj123466/",
@@ -23,5 +23,43 @@
             "url": "https://www.codechef.com/users/moreniraj49"
         },
         "coding_score": 0.15
+    },
+    {
+        "name": "NirajMore_WP.pdf",
+        "compatibility_score": 0.2743886113166809,
+        "coding_profiles": {
+            "github": "https://github.com/Niraj123466",
+            "leetcode": "https://leetcode.com/u/Niraj123466/",
+            "codechef": "https://www.codechef.com/users/moreniraj49"
+        },
+        "github_stats": {
+            "url": "https://github.com/Niraj123466",
+            "total_contributions": 29,
+            "active_days": 6,
+            "public_repos": 55
+        },
+        "leetcode_stats": {
+            "url": "https://leetcode.com/u/Niraj123466/",
+            "total_problems_solved": 225,
+            "ranking": 582162,
+            "contest_rating": null
+        },
+        "codechef_stats": {
+            "url": "https://www.codechef.com/users/moreniraj49"
+        },
+        "coding_score": 0.15
+    },
+    {
+        "name": "niraj-more-peerlist-resume.pdf",
+        "compatibility_score": 0.12704646587371826,
+        "coding_profiles": {
+            "github": null,
+            "leetcode": null,
+            "codechef": null
+        },
+        "github_stats": {},
+        "leetcode_stats": {},
+        "codechef_stats": {},
+        "coding_score": 0
     }
 ]

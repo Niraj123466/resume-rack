@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuth } from "../context/AuthContext";
-import { db } from "../firebase";
+import { db } from "../services/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import toast from 'react-hot-toast';
 
