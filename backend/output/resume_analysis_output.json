@@ -1,25 +1,27 @@
 [
     {
-        "name": "resumenupur.pdf",
-        "compatibility_score": 0.2569928765296936,
+        "name": "NirajMore (2).pdf",
+        "compatibility_score": 0.2934091091156006,
         "coding_profiles": {
-            "github": "https://github.com/nupurmestry15",
-            "leetcode": "https://leetcode.com/u/FAFNhsCCzG/",
-            "codechef": null
+            "github": "https://github.com/Niraj123466",
+            "leetcode": "https://leetcode.com/u/Niraj123466/",
+            "codechef": "https://www.codechef.com/users/moreniraj49"
         },
         "github_stats": {
-            "url": "https://github.com/nupurmestry15",
-            "total_contributions": 0,
-            "active_days": 0,
-            "public_repos": 4
+            "url": "https://github.com/Niraj123466",
+            "total_contributions": 29,
+            "active_days": 6,
+            "public_repos": 55
         },
         "leetcode_stats": {
-            "url": "https://leetcode.com/u/FAFNhsCCzG/",
-            "total_problems_solved": 0,
-            "ranking": 5000001,
+            "url": "https://leetcode.com/u/Niraj123466/",
+            "total_problems_solved": 225,
+            "ranking": 582162,
             "contest_rating": null
         },
-        "codechef_stats": {},
-        "coding_score": 0.004
+        "codechef_stats": {
+            "url": "https://www.codechef.com/users/moreniraj49"
+        },
+        "coding_score": 0.15
     }
 ]

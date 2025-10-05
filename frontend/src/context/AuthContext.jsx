@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
 
 const AuthContext = createContext();
 
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
             setCredits(userData.credits ?? 5); // fallback to 5 only if missing in DB
           } else {
             // If user doc doesn't exist, create it with default credits
-            await updateDoc(docRef, { credits: 5 });
+            await setDoc(docRef, { credits: 5 });
             setCredits(5);
           }
         } catch (error) {

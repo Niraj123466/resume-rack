@@ -60,7 +60,7 @@ const Upload = () => {
       setMessage(res.message)
       setScriptOutput(res.output)
 
-      const response = await fetch("http://localhost:5000/api/resume-data")
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5001/api"}/resume-data`)
       const data = await response.json()
       decrementCredits()
       setResumeData(data)

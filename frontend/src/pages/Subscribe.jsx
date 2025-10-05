@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from "../context/AuthContext";
 import { db } from "../firebase";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import toast from 'react-hot-toast';
 
 const Subscribe = () => {
@@ -10,7 +10,7 @@ const Subscribe = () => {
   const handlePayment = async () => {
     try {
       // Step 1: Get subscription_id from backend
-      const res = await fetch("http://localhost:5000/api/razorpay/create-subscription", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5001/api"}/razorpay/create-subscription`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,11 +31,11 @@ const Subscribe = () => {
         subscription_id: subscriptionId,
         name: "ResumeRanker",
         description: "Credit Subscription (100 credits)",
-        image: "/logo.png",
+        image: "/logo.svg",
         handler: async function (response) {
           // Payment success
           const docRef = doc(db, "users", user.uid);
-          await updateDoc(docRef, { credits: 100 });
+          await setDoc(docRef, { credits: 100 }, { merge: true });
           setCredits(100);
           toast.success("Payment successful! You now have 100 credits.");
         },
